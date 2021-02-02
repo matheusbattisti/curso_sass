@@ -1,0 +1,97 @@
+@use 'sass:map'
+  
+$a: 10
+
+@debug $a
+@debug $a + 10px
+
+$str: "Roboto"
+$str2: Roboto
+
+@debug $str == $str2
+
+$nome-da-fonte: "Open"
+$var1: "Sans"
+$var2: "Teste"
+
+@debug $nome-da-fonte + " " + $var1
+@debug $nome-da-fonte + " " + $var2
+
+p
+  font-family: $nome-da-fonte + " " + $var1
+
+h1
+  font-family: "#{$nome-da-fonte} #{$var2}"
+
+$h: hidden
+
+h2
+  display: $h
+  color: rgba(123, 231, 144, 0.8)
+
+@debug #f2ec44
+@debug blue
+@debug midnightblue
+@debug rgb(201, 50, 124)
+@debug rgba(123, 231, 144, 0.8)
+@debug hsl(34, 50%, 92%)
+@debug #f5ece0
+
+$list: 10, 20, 30
+
+@each $value in $list
+  @debug $value + 10
+
+@each $font in $list
+  .p-#{$font}
+    font-size: $font + "px"
+
+$font-weights: ("regular": 400, "bold": 700, "black": 900)
+
+h3
+  font-weight: map.get($font-weights, "black")
+
+@each $key, $value in $font-weights
+  .p-#{$key}
+    font-weight: $value
+
+
+@debug true
+@debug false
+
+$verdadeiro: true
+
+@debug $verdadeiro
+
+@debug 10 > 2
+@debug 2 > 20
+
+@if 10 < 2
+  p
+    color: red
+@else
+  p
+    color: blue
+
+@debug 10 == 10
+@debug 10 != 10
+
+$x: 20
+
+@debug $x != 12
+
+@if $x != 12
+  h1
+    font-size: $x + px
+
+@debug 10 > 10
+@debug 10 >= 10
+@debug 20 < 40
+@debug 30 <= 29
+
+@debug 10px + 12px
+@debug 100 - 20
+@debug 10% * 5
+@debug (100% / 2)
+@debug 12 % 3
+@debug 13 % 3

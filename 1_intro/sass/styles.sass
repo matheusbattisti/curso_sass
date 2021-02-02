@@ -1,0 +1,24 @@
+@import 'test.sass'
+@import 'module.sass'
+  
+$bg-color: #CCC
+$font-color: #333
+$teste: $red
+
+@mixin reset-element
+  padding: 0
+  margin: 0
+
+body
+  background-color: $bg-color
+  width: 100%
+  height: 100%
+  @include reset-element
+
+.container
+  background: lightblue
+  
+  h1
+    color: $color
+    text-align: center
+    background-color: $teste

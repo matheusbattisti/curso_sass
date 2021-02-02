@@ -1,0 +1,151 @@
+@use 'sass:color'
+@use 'sass:list'
+@use 'sass:map'
+@use 'sass:math'
+@use 'sass:meta'
+@use 'sass:string'
+
+$color-adjust: color.adjust(#6B717F, $red: 25)
+$color-adjust-2: color.adjust(#6B717F, $red: 25, $blue: 110)
+
+.color-1
+  color: $color-adjust
+  background-color: $color-adjust-2
+
+@debug color.blue($color-adjust)
+@debug color.blue($color-adjust-2)
+
+$color-scale: color.scale($color-adjust-2, $lightness: -40%)
+$color-scale-2: color.scale($color-adjust-2, $lightness: 40%)
+
+.color-2
+  background-color: $color-scale
+
+.color-3
+  background-color: $color-scale-2
+
+.color-4
+  background-color: color.invert($color-scale-2)
+
+.color-5
+  background-color: color.mix(#123123, #4F2F3F)
+
+.color-6
+  background-color: desaturate(#4F1F33, 60%)
+
+.color-7
+  background-color: #4F1F33
+
+  &:hover
+    background-color: lighten(#4F1F33, 60%)
+
+$lista: 10px, 20px, 30px
+
+@debug $lista
+
+$lista: list.append($lista, 40px)
+
+@debug $lista
+
+@debug list.index($lista, 10px)
+
+@debug list.index($lista, 50px)
+
+@if list.index($lista, 10px) == 1
+  $lista: list.append($lista, 50px)
+
+@debug $lista
+
+$lista2: 60px, 70px, 80px, 90px, 100px
+
+$lista3: list.join($lista, $lista2)
+
+@debug $lista3
+
+@debug list.length($lista)
+@debug list.length($lista3)
+
+@debug list.nth($lista, 3)
+@debug list.nth($lista3, 6)
+
+$font-size-title: list.nth($lista3, 4)
+
+@debug $font-size-title
+
+h1
+  font-size: $font-size-title
+
+$m: ('font': 3px, 'color': blue, 'bold': false)
+$n: ('border': 2px solid red, 'transition': 1s)
+
+@debug $m
+@debug $n
+
+$x: map.merge($m, $n)
+
+@debug $x
+
+$border-title: map.get($x, 'border')
+
+h1
+  border: $border-title
+
+@debug $border-title
+
+@debug map.has-key($x, 'transition')
+@debug map.has-key($x, 'teste')
+
+@if map.has-key($x, 'transition')
+  h1
+    transition: map.get($x, 'transition')
+
+$pi: math.$pi
+
+@debug $pi
+
+$z: 3.5
+
+@debug math.ceil($z)
+@debug math.floor($z)
+
+@debug math.floor($pi)
+
+$a: 1, 2, 3, 4, 5
+
+@debug math.max($a...)
+@debug math.min($a...)
+
+@debug math.floor(math.random() * 10)
+
+@debug meta.global-variable-exists('a')
+@debug meta.global-variable-exists('naoexiste')
+
+@debug meta.inspect($a)
+@debug meta.inspect($pi)
+
+@mixin test
+  margin: 0
+  padding: 0
+
+@debug meta.mixin-exists('test')
+@debug meta.mixin-exists('test2')
+
+@debug meta.type-of(2)
+@debug meta.type-of(('asd': 1))
+@debug meta.type-of($a)
+@debug meta.type-of('string')
+@debug meta.type-of(#FFF)
+@debug meta.type-of(bold)
+
+$frase: "O rato roeu a roupa do rei de Roma"
+
+@debug string.index($frase, 'rei')
+@debug string.index($frase, 'Brasil')
+
+@debug string.length($frase)
+
+@debug string.to-lower-case($frase)
+@debug string.to-upper-case($frase)
+
+@debug string.unique-id()
+@debug string.unique-id()

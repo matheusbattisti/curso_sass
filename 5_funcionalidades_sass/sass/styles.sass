@@ -1,0 +1,93 @@
+@charset "UTF-8"
+  
+@import 'variables'
+@import 'button'
+@import 'mixins'
+@import 'plugins'
+@import 'functions'
+
+body
+  margin: 20px
+
+.p-esp
+  @include special
+
+h2
+  @extend %special
+  @include green
+
+.esp-menor
+  @include espacamento(10px, 10px)
+  @include custom-border(solid, red)
+  @include colors
+  @extend %font-pattern
+
+.esp-medio
+  @include espacamento(15px, 15px)
+  @include custom-border(dotted, blue, 4px)
+  @include colors($background: #321)
+  @extend %font-pattern
+
+.esp-maior
+  @include espacamento(25px, 25px)
+  @include custom-border(solid, green)
+  @include colors($background: #336699, $font: #991155)
+  @extend %font-pattern
+
+.esp-maior-ainda
+  $pad: 50px
+  $mag: 50px
+  @include espacamento($pad, $mag)
+  @include custom-border(double, gold, 3px)
+  @include colors($font: gold)
+  @extend %font-pattern
+
+$medida: 4
+
+.container-menor
+  width: 100px * ($medida + 2)
+  border: custom-border-function()
+
+.container-maior
+  width: 25rem * $medida
+  border: custom-border-function(2)
+
+.fonte-pequena
+  font-size: 5px
+  color: text-color(5)
+  border: custom-border-function(3)
+
+.fonte-grande
+  font-size: 25px
+  color: text-color(25)
+  border: custom-border-function(32)
+
+.teste-1
+  width: custom-width()
+  background-color: red
+
+.teste-2
+  width: custom-width($width: 1000px)
+  background-color: green
+
+.teste-3
+  width: custom-width($division: 2.5)
+  padding: 20px
+  background-color: calc-func(5, 5)
+
+$fonts: 40px, 60px, 100px
+
+@each $font in $fonts
+  .title-#{$font}
+    font-size: $font
+    line-height: $font * 1.2
+
+@for $i from 1 through 3
+  .p-#{$i}
+    @if $i == 1
+      color: lightblue
+    @else if $i == 2
+      color: lightgreen
+    @else if $i == 3
+      color: teal
+    background-color: #000

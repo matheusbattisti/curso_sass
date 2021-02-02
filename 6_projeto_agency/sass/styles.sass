@@ -1,0 +1,279 @@
+@import 'variables'
+@import 'utilities'
+  
+@include reset
+
+#main-banner
+  background: linear-gradient( rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../img/office.jpg')
+  height: 85vh
+  background-size: cover 
+  background-position: center
+  
+  @include mobile
+    height: 100vh
+  nav
+    @include mobile
+      display: none
+
+  .nav-container
+    display: flex
+    justify-content: space-between
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    padding: 1.5rem 2rem
+    background-color: $black
+    z-index: 10
+
+    @include mobile
+      padding: 1rem
+
+    .brand
+      color: $light-color
+      font-size: 2rem
+      @include main-hover
+
+    &-navbar
+      display: flex
+      align-items: center
+      height: 100%
+
+      li
+        margin: 5px 10px
+
+        a
+          color: $light-color
+          @include main-hover
+
+    .fas.fa-bars
+      font-size: 2rem
+      color: #FFF
+      display: none
+
+      @include mobile
+        display: block
+
+  .title-container
+    color: $light-color
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100%
+
+    @include mobile
+      text-align: center
+      padding: 2rem
+
+    h2
+      font-size: 3rem
+      @extend %title-text-shadow
+
+    h1
+      font-size: 4rem
+      margin-top: 1rem
+      @extend %title-text-shadow
+
+.services-container
+  text-align: center
+  padding: 2rem
+  margin-bottom: 2rem
+
+  h2
+    @extend %section-title
+
+  .services-card-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    padding: 2rem
+
+    @include mobile
+      padding: 2rem 0
+
+    .services-card
+      width: 30%
+      margin: 1%
+      padding: 2rem
+      border: 1px solid #CCC
+      transition: .3s
+
+      @include mobile
+        width: 100%
+        margin-bottom: 2rem
+
+      i
+        color: $primary-color
+        font-size: 4rem
+        display: block
+        margin-top: 1rem
+        margin-bottom: 1.5rem
+
+      h3
+        font-size: 1.5rem
+        margin-bottom: 1rem
+      
+      p
+        color: $text-color
+
+      &:hover
+        border: transparent
+        box-shadow: 0 1px 10px #CCC
+
+.jobs-container
+  background-color: $secondary-bg
+  padding: 3rem
+
+  @include mobile
+    padding: 2rem
+
+  h2
+    @extend %section-title
+
+  .jobs-list
+    display: flex
+    padding: 2rem 0
+
+    @include mobile
+      flex-direction: column
+
+    .first-job
+      width: 30%
+      height: 415px
+      margin: 0 2%
+      background-image: url('../img/job1.jpg')
+      position: relative
+      cursor: pointer
+      transition: .5s
+      @extend %center-bg
+      @extend %card-hover
+
+      @include mobile
+        @include card-mobile
+
+    .other-jobs-container
+      display: flex
+      flex-wrap: wrap
+      width: 68%
+
+      @include mobile
+        width: 100%
+        flex-direction: column
+
+      .job-card
+        width: 46%
+        height: 200px
+        position: relative
+        cursor: pointer
+        margin-bottom: 15px
+        margin-right: 15px
+        @extend %center-bg
+        @extend %card-hover
+
+        @include mobile
+          @include card-mobile
+
+      #job2
+        background-image: url('../img/job2.jpg')
+
+      #job3
+        background-image: url('../img/job3.jpg')
+
+      #job4
+        background-image: url('../img/job4.jpg')
+
+      #job5
+        background-image: url('../img/job5.jpg')
+
+    .job-card-cover
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      padding-top: 1.75rem
+      background-color: rgba(0, 0, 0, .6)
+      border: 3px solid $primary-color
+
+    .job-card-title
+      text-align: center
+      color: #FFF
+      font-size: 2.2rem
+      transition: .5s
+      font-weight: bold
+
+    .job-card-description
+      text-align: center
+      color: #FFF
+      padding: 1rem
+      font-size: .9rem
+    
+footer
+  background-color: $footer-bg
+  color: $text-color
+  padding: 5rem 2rem
+
+  .footer-container
+    max-width: 1200px
+    margin: 0 auto
+    display: flex
+    flex-wrap: wrap
+
+    @include mobile
+      max-width: 100%
+      flex-direction: column
+
+    .footer-title
+      color: #FFF
+      font-weight: bold
+      margin-bottom: 1rem
+
+  .footer-desc-container, .footer-links-container
+    width: 50%
+
+    @include mobile
+      width: 100%
+      margin-bottom: 2rem
+      text-align: center
+  
+  .footer-desc-container
+    p
+      width: 80%
+      line-height: 1.3
+
+      @include mobile
+        width: 100%
+
+  .footer-links-container
+    display: flex
+
+    @include mobile
+      flex-direction: column
+
+    &-list
+      padding: 0 1rem
+
+      @include mobile
+        margin-bottom: 2rem
+
+      li
+        margin-bottom: .5rem
+
+        a
+          color: $text-color
+          transition: .5s
+
+          &:hover
+            color: #FFF
+
+  .footer-copy-right-container
+    width: 100%
+    margin-top: 3rem
+
+    @include mobile
+      text-align: center
+
+    p
+      margin-bottom: 1rem
+

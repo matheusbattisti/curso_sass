@@ -1,0 +1,45 @@
+.color-1 {
+  color: #84717f;
+  background-color: #8471ed;
+}
+
+.color-2 {
+  background-color: #3118ba;
+}
+
+.color-3 {
+  background-color: #b5aaf4;
+}
+
+.color-4 {
+  background-color: #4a550b;
+}
+
+.color-5 {
+  background-color: #313031;
+}
+
+.color-6 {
+  background-color: #373737;
+}
+
+.color-7 {
+  background-color: #4F1F33;
+}
+.color-7:hover {
+  background-color: #e5bbcd;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h1 {
+  border: 2px solid red;
+}
+
+h1 {
+  transition: 1s;
+}
+
+/*# sourceMappingURL=styles.css.map */

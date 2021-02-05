@@ -1,0 +1,98 @@
+@use '../1-base/variables'
+@use '../1-base/base-mixins'
+@use 'layouts-mixins'
+
+.header
+  background-color: variables.$bg-color
+
+  &-top
+    background-color: variables.$secondary-bg-color
+    color: variables.$light-color
+
+    @include base-mixins.mobile
+      display: none
+
+    &-container
+      @include layouts-mixins.center-content
+      padding: .8rem 0
+
+      span
+        margin-right: 1rem
+
+      i
+        margin-right: .3rem
+
+      a
+        color: variables.$light-color
+
+.main-header
+
+  &-container
+    @include layouts-mixins.center-content
+    padding: 1.3rem 0
+
+    @include base-mixins.mobile
+      flex-direction: column
+      align-items: center
+
+    a, span, i
+      color: #FFF
+
+    #brand
+      font-weight: 900
+      font-size: 3rem
+
+      i
+        color: variables.$primary-color
+        font-size: 2rem
+
+    #search-form
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 45%
+
+      @include base-mixins.mobile
+        width: 100%
+        margin: 2rem 0
+
+      input
+        height: 40px
+
+      #search
+        @include layouts-mixins.rounded-input
+        width: 60%
+
+    .header-actions-menu
+      display: flex
+      align-items: center
+
+      .wishlist-container, .header-cart-container
+        @include layouts-mixins.header-icon
+
+        @include base-mixins.mobile
+          margin: 1rem
+
+.header-bottom
+  background-color: variables.$light-color
+  border-bottom: 2px solid variables.$section-bg-color
+  border-top: 3px solid variables.$primary-color
+
+  ul
+    @include layouts-mixins.center-content
+    justify-content: left
+    padding: 1rem 0
+
+    @include base-mixins.mobile
+      display: none
+
+    li
+      margin-right: 1.3rem
+
+      a
+        color: variables.$link-color
+        border-bottom: 2px solid transparent
+
+        &:hover
+          color: variables.$primary-color
+          border-color: variables.$primary-color

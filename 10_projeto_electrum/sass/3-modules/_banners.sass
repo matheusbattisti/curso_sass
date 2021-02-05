@@ -1,0 +1,57 @@
+@use '../1-base/variables'
+@use '../1-base/base-mixins'
+@use 'modules-mixins'
+
+.banner
+  width: 30%
+  height: 200px
+  position: relative
+  color: variables.$light-color
+  transition: .4s
+  @include modules-mixins.center-bg
+  background-size: 100%
+
+  @include base-mixins.mobile
+    width: 90%
+    margin: 1rem
+
+  &:hover
+    background-size: 120%
+
+  &-cover
+    background-color: variables.$primary-color
+    width: 70%
+    height: 100%
+    opacity: .8
+    border-bottom-right-radius: 6rem
+
+  &-content
+    position: absolute
+    top: 0
+    left: 0
+    padding: 2rem
+
+    h2
+      font-size: 2.1rem
+      margin-bottom: 1rem
+      max-width: 70%
+
+    a
+      font-size: 1.5rem
+      color: variables.$light-color
+      font-weight: bold
+      display: flex
+      align-items: center
+
+    i
+      color: variables.$light-color
+      margin-left: .8rem
+
+#banner-1
+  background-image: url('../../img/banner-1.jpg')
+
+#banner-2
+  background-image: url('../../img/banner-2.jpg')
+
+#banner-3
+  background-image: url('../../img/banner-3.jpg')
